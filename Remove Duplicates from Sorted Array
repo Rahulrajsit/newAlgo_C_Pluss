@@ -1,0 +1,43 @@
+/***********************************************************
+           i/p : 1,1,1,2,2,3
+           o/p : 1,1,2,2,3
+           
+ ***********************************************************/
+#include<iostream>
+#include<vector>
+
+using namespace std;
+class Solution {
+public:
+	/**
+	 * @param A: a list of integers
+	 * @return : return an integer
+	 */
+	int removeDuplicates(vector<int>& nums) {
+		// write your code here
+
+		int index = 0, count = 1;
+		for (int i = 1; i < nums.size(); i++) {
+			if (nums[i] == nums[index]) {
+				if (count < 2) {
+					nums[++index] = nums[i];
+					count++;
+				}
+			}
+			else {
+				nums[++index] = nums[i];
+				count = 1;
+			}
+		}
+		return index + 1;
+	}
+};
+int main() {
+	vector<int> nums{ 1,1,1,2,2,3 };
+	Solution obj;
+	int x = obj.removeDuplicates(nums);
+	cout << x << endl;
+	for (auto i = nums.begin(); i < nums.end();i++) {
+		cout << *i << ' ';
+	}
+}
