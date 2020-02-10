@@ -27,7 +27,7 @@ public:
 	}
 };
 int main() {
-	vector<int> nums{ 1,2,1,1 };
+	vector<int> nums{ 1,0,1,1 };
 	Solution obj;
 	cout << obj.removeDuplicates(nums);
 	for (auto i = nums.begin(); i < nums.end(); i++) {
